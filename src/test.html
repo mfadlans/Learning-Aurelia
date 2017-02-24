@@ -1,0 +1,44 @@
+<template>
+
+  <require from="./converter/numeric-converter"></require>
+
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+      <div class="form-group">
+        <label for="fn">First Name</label>
+        <input type="text" value.bind="firstName & throttle" class="form-control" id="fn" placeholder="First Name">
+      </div>
+
+      <div class="form-group">
+        <label for="ln">Last Name</label>
+        <input type="text" value.bind="lastName & throttle" class="form-control" id="ln" placeholder="Last Name">
+      </div>
+
+      <div>
+        <label for="sal">Salary</label>
+        <input type="number" value.bind="salary" class="form-control" id="sal" placeholder="Salary">
+      </div>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <p class="help-block">${fullName}</p>
+      </div>
+
+      <div>
+        <h3>${salary | currencyFormat}</h3>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button click.delegate="tryDelegate()">Try Delegate</button>
+      </div>
+
+      <!--<div>
+                <button click.delegate="publish()">Publish</button>
+                <button click.delegate="subscribe()">Subscribe</button>
+                <button click.delegate="dispose()">dispose</button>
+            </div>-->
+    </form>
+  </section>
+</template>
